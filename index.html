@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+    <title>ModaStyle - Loja Premium de Roupas</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="cabecalho">
+        <div class="logo">
+            <img src="imagem/pnglogo.png " alt="">
+            <h1>Vista<span>Se</span></h1>
+        </div>
+
+        <nav class="navegacao-principal">
+            <ul class="links-navegacao">
+                <li><a href="#home" class="link-navegacao ativo">Home</a></li>
+                <li><a href="#feminino" class="link-navegacao">Feminino</a></li>
+                <li><a href="#masculino" class="link-navegacao">Masculino</a></li>
+                <li><a href="#colecoes" class="link-navegacao">Coleções</a></li>
+                <li><a href="#sobre" class="link-navegacao">Sobre</a></li>
+            </ul>
+
+            <div class="barra-pesquisa" id="barra-pesquisa">
+                <input type="text" placeholder="Pesquisar produtos..." id="campo-pesquisa">
+                <button type="button" id="botao-pesquisar"><i class="fas fa-search"></i></button>
+            </div>
+
+            <div class="icones-cabecalho">
+                <a href="#" id="botao-pesquisa-mobile"><i class="fas fa-search"></i></a>
+                <a href="#" id="botao-admin"><i class="fas fa-user"></i></a>
+                <a href="#" id="botao-favoritos"><i class="fas fa-heart"></i></a>
+                <a href="#" id="botao-carrinho">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="contador-carrinho">5</span>
+                </a>
+            </div>
+
+            <div class="botao-menu-mobile" id="botao-menu-mobile">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ========== MENU MOBILE ========== -->
+    <div class="overlay-menu-mobile" id="overlay-menu-mobile"></div>
+
+    <div class="container-menu-mobile" id="container-menu-mobile">
+        <div class="cabecalho-menu-mobile">
+            <div class="logo">
+                <img src="image/pnglogo.png " alt="ModaStyle Logo">
+                <h1>Junior<span>Mode</span></h1>
+            </div>
+            <div class="botao-fechar-menu" id="botao-fechar-menu">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+
+        <ul class="links-navegacao-mobile">
+            <li><a href="#home" class="link-navegacao-mobile ativo">Home</a></li>
+            <li><a href="#feminino" class="link-navegacao-mobile">Feminino</a></li>
+            <li><a href="#masculino" class="link-navegacao-mobile">Masculino</a></li>
+            <li><a href="#colecoes" class="link-navegacao-mobile">Coleções</a></li>
+            <li><a href="#sobre" class="link-navegacao-mobile">Sobre</a></li>
+        </ul>
+    </div>
+
+    <!-- ========== OVERLAY DE SENHA ADMIN ========== -->
+    <div class="overlay-senha" id="overlay-senha">
+        <div class="caixa-senha">
+            <h2>Acesso Administrativo</h2>
+            <p>Digite a senha de administrador:</p>
+            <input type="password" id="campo-senha" placeholder="Senha" autocomplete="off">
+            <div class="botoes-acao">
+                <button class="btn-confirmar" id="confirmar-senha">Confirmar</button>
+                <button class="btn-cancelar" id="cancelar-senha">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== ÁREA ADMINISTRATIVA ========== -->
+    <div class="overlay-admin" id="overlay-admin">
+        <div class="caixa-admin">
+            <h2>Área Administrativa</h2>
+            <form class="formulario-admin" id="formulario-admin">
+                <div class="grupo-formulario">
+                    <label for="tipo-produto">Tipo de Produto</label>
+                    <select id="tipo-produto" required>
+                        <option value="">Selecione...</option>
+                        <option value="feminino">Feminino</option>
+                        <option value="masculino">Masculino</option>
+                    </select>
+                    <div class="mensagem-erro" id="erro-tipo">Por favor, selecione o tipo de produto</div>
+                </div>
+
+                <div class="grupo-formulario">
+                    <label for="nome-produto">Nome do Produto</label>
+                    <input type="text" id="nome-produto" placeholder="Ex: Vestido Floral Midi" required>
+                    <div class="mensagem-erro" id="erro-nome">Por favor, insira o nome do produto</div>
+                </div>
+
+                <div class="grupo-formulario">
+                    <label for="preco-produto">Preço (MT)</label>
+                    <input type="number" id="preco-produto" placeholder="Ex: 850.00" step="0.01" required>
+                    <div class="mensagem-erro" id="erro-preco">Por favor, insira um preço válido</div>
+                </div>
+
+                <div class="grupo-formulario">
+                    <label for="imagem-produto">Imagem do Produto</label>
+                    <input type="file" id="imagem-produto" accept="image/*" required>
+                    <div class="mensagem-erro" id="erro-imagem">Por favor, selecione uma imagem</div>
+                </div>
+
+                <div class="grupo-formulario">
+                    <label for="imagem-secundaria-produto">Imagem Secundária (Opcional)</label>
+                    <input type="file" id="imagem-secundaria-produto" accept="image/*">
+                </div>
+
+                <div class="grupo-formulario">
+                    <label for="descricao-produto">Descrição</label>
+                    <textarea id="descricao-produto" placeholder="Descreva o produto..." required></textarea>
+                    <div class="mensagem-erro" id="erro-descricao">Por favor, insira uma descrição</div>
+                </div>
+
+                <div class="grupo-formulario">
+                    <label for="tamanhos-produto">Tamanhos (separados por vírgula)</label>
+                    <input type="text" id="tamanhos-produto" placeholder="Ex: P, M, G, GG">
+                </div>
+
+                <div class="grupo-formulario">
+                    <label for="cores-produto">Cores (separadas por vírgula)</label>
+                    <input type="text" id="cores-produto" placeholder="Ex: Vermelho, Preto, Branco">
+                </div>
+
+                <div class="grupo-formulario">
+                    <label>
+                        <input type="checkbox" id="produto-novo"> Produto Novo
+                    </label>
+                    <label>
+                        <input type="checkbox" id="produto-promocao"> Em Promoção
+                    </label>
+                    <label>
+                        <input type="checkbox" id="produto-mais-vendido"> Mais Vendido
+                    </label>
+                </div>
+                <!-- FORMULARIO DE PRECOS -->
+                <div class="grupo-formulario" id="grupo-preco-original" style="display: none;">
+                    <label for="preco-original-produto">Preço Original (MT)</label>
+                    <input type="number" id="preco-original-produto" placeholder="Ex: 1000.00" step="0.01">
+                </div>
+                <!-- CANCELE A ADICIONE NOVO PRODUTO -->
+                <div class="acoes-admin">
+                    <button type="submit" class="botao-principal">Adicionar Produto</button>
+                    <button type="button" class="botao botao-secundario" id="cancelar-admin">Cancelar</button>
+                </div>
+            </form>
+
+            <div class="lista-produtos-admin">
+                <h3>Produtos Cadastrados</h3>
+                <div id="lista-produtos">
+                    <!-- Lista de produtos será carregada aqui -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== PÁGINA INICIAL ========== -->
+    <section id="home" class="pagina">
+        <div class="heroi">
+            <div class="container">
+                <h2>Coleção Outono/Inverno 2025</h2>
+                <p>As melhores tendências da estação com até 40% de desconto</p>
+                <div class="botoes-acao">
+                    <a href="#feminino" class="botao botao-principal">Ver Feminino</a>
+                    <a href="#masculino" class="botao botao-contorno">Ver Masculino</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <h2 class="titulo-secao">Lançamentos</h2>
+            <div class="grade-produtos" id="produtos-destaque">
+                <!-- Produtos serão carregados via JavaScript -->
+            </div>
+        </div>
+
+        <div class="container">
+            <h2 class="titulo-secao">Mais Vendidos</h2>
+            <div class="grade-produtos" id="produtos-mais-vendidos">
+                <!-- Produtos serão carregados via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PÁGINA FEMININO ========== -->
+    <section id="feminino" class="pagina">
+        <div class="container">
+            <h1 class="titulo-secao">Moda Feminina</h1>
+            <div class="grade-produtos" id="grade-feminino">
+                <!-- Produtos serão carregados via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PÁGINA MASCULINO ========== -->
+    <section id="masculino" class="pagina">
+        <div class="container">
+            <h1 class="titulo-secao">Moda Masculina</h1>
+            <div class="grade-produtos" id="grade-masculino">
+                <!-- Produtos serão carregados via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== RODAPÉ ========== -->
+    <footer id="sobre">
+        <div class="container">
+            <div class="conteudo-rodape">
+                <div class="coluna-rodape">
+                    <h3>VistaSe</h3>
+                    <p>Sua loja de moda premium com as melhores marcas e tendências.</p>
+                    <div class="links-sociais">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="coluna-rodape">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#feminino">Feminino</a></li>
+                        <li><a href="#masculino">Masculino</a></li>
+                        <li><a href="#colecoes">Coleções</a></li>
+                        <li><a href="#sobre">Sobre Nós</a></li>
+                    </ul>
+                </div>
+                <div class="coluna-rodape">
+                    <h3>Ajuda</h3>
+                    <ul>
+                        <li><a href="#">Trocas e Devoluções</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Serviço</a></li>
+                        <li><a href="#">Formas de Pagamento</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="coluna-rodape">
+                    <h3>Contato</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Av. Moda, 123 - Mozambique</li>
+                        <li><i class="fas fa-phone"></i> +258 877162055</li>
+                        <li><i class="fas fa-envelope"></i>Boyvicerinoeliasmacie@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 VistaSe. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOTÃO WHATSAPP  -->
+    <a href="#" class="botao-whatsapp" id="botao-whatsapp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+ <script src="script.js"></script>
+</body>
+
+</html>
